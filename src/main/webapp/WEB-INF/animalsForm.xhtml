@@ -4,35 +4,15 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-	<p:carousel value="#{animalsController.animals}" var="animal"
-		itemStyle="text-align:center" responsive="true">
-		<p:panelGrid columns="2" style="width:100%;margin:10px 0px"
-			columnClasses="label,value" layout="grid"
-			styleClass="ui-panelgrid-blank">
-
-			<h:outputText value="Species:" />
-			<h:outputText value="#{animal.species}" />
-			
-			<h:outputText value="Diet:" />
-			<h:outputText value="#{animal.diet}" />
-			
-			<h:outputText value="Name:" />
-			<h:outputText value="#{animal.name}" />
-
-			<h:outputText value="Sex:" />
-			<h:outputText value="#{animal.sex}" />
-
-			<h:outputText value="Needed space:" />
-			<h:outputText value="#{animal.neededSpace}" />
-
-			<h:outputText value="Food:" />
-			<h:outputText value="#{animal.food}" />
-
-			<h:outputText value="Birthday" />
-			<h:outputText value="#{animal.birthday}" />
-		</p:panelGrid>
-
-		<f:facet name="footer">In total there are #{(animalsController.animals.size())} animals.</f:facet>
-	</p:carousel>
-
+	<p:tabView>
+		<p:tab title="Add animals">
+ 			<ui:include src="/WEB-INF/animalsManagementForm.xhtml" /> 
+		</p:tab>
+		<p:tab title="Carnivors">
+			<ui:include src="/WEB-INF/animalsCarnivoreForm.xhtml" /> 			
+		</p:tab>
+		<p:tab title="Herbivors">
+			<ui:include src="/WEB-INF/animalsHerbivoreForm.xhtml" /> 
+		</p:tab>
+	</p:tabView>
 </h:form>

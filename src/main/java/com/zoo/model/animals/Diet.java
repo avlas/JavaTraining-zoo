@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public abstract class Diet implements Serializable {
+public class Diet implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -15,19 +15,20 @@ public abstract class Diet implements Serializable {
 	@GeneratedValue
 	private int id;
 
-	private String carnivore;
-	private String herbivore;
+	private Carnivore carnivore;
+	private Herbivore herbivore;
 
-	public String getCarnivore() {
+	public Carnivore getCarnivore() {
 		return carnivore;
 	}
-	public void setCarnivore(String carnivore) {
+	public void setCarnivore(Carnivore carnivore) {
 		this.carnivore = carnivore;
 	}
-	public String getHerbivore() {
+	public Herbivore getHerbivore() {
 		return herbivore;
 	}
-	public void setHerbivore(String herbivore) {
+	public void setHerbivore(Herbivore herbivore) {
 		this.herbivore = herbivore;
 	}
+
 }

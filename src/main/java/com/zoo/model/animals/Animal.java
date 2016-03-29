@@ -1,12 +1,10 @@
 package com.zoo.model.animals;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Animal implements Serializable {
@@ -16,27 +14,24 @@ public class Animal implements Serializable {
 	@Id
 	@GeneratedValue
 	private int id;
-	private String species;
-	@OneToOne
-	private Diet diet;
+//	@OneToOne
+	private String diet;
+	private String family;
 	private String name;
 	private String sex;
-	private Integer neededSpace;
-	private String food;
-	private Date birthday;
+	private int age;
 
-
-	public String getSpecies() {
-		return species;
-	}
-	public void setSpecies(String species) {
-		this.species = species;
-	}
-	public Diet getDiet() {
+	public String getDiet() {
 		return diet;
 	}
-	public void setDiet(Diet diet) {
+	public void setDiet(String diet) {
 		this.diet = diet;
+	}
+	public String getFamily() {
+		return family;
+	}
+	public void setFamily(String family) {
+		this.family = family;
 	}
 	public String getName() {
 		return name;
@@ -50,22 +45,10 @@ public class Animal implements Serializable {
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public Integer getNeededSpace() {
-		return neededSpace;
+	public int getAge() {
+		return age;
 	}
-	public void setNeededSpace(Integer neededSpace) {
-		this.neededSpace = neededSpace;
-	}
-	public String getFood() {
-		return food;
-	}
-	public void setFood(String food) {
-		this.food = food;
-	}
-	public Date getBirthday() {
-		return birthday;
-	}
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+	public void setAge(int age) {
+		this.age = age;
 	}
 }

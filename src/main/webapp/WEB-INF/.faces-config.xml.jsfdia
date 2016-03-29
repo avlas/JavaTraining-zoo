@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login.xhtml:0" NAME="item"
+   PATH="/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="true::#welcome.xhtml" NAME="output"
+    PATH="/welcome.xhtml" SHAPE="81,48,128,48,128,24,367,24"
+    TARGET="rules:#welcome.xhtml" TITLE="true" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+  <PROCESS-ITEM ID="rules:#login.xhtml:1" NAME="item1"
+   PATH="/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="false::#login-failed.xhtml" NAME="output"
+    PATH="/login-failed.xhtml" TARGET="rules:#login-failed.xhtml"
+    TITLE="false" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#login-failed.xhtml"
+  PATH="/login-failed.xhtml" SHAPE="160,56,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login-failed.xhtml:0" NAME="item"
+   PATH="/login-failed.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="true::#welcome.xhtml" NAME="output"
+    PATH="/welcome.xhtml" SHAPE="209,88,272,88,272,24,367,24"
+    TARGET="rules:#welcome.xhtml" TITLE="true" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#welcome.xhtml" PATH="/welcome.xhtml"
+  SHAPE="368,16,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#welcome.xhtml:0" NAME="item"
+   PATH="/welcome.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="true::#paymentPage.xhtml" NAME="output"
+    PATH="/paymentPage.xhtml"
+    SHAPE="417,48,440,48,440,48,440,48,440,48,511,48"
+    TARGET="rules:#paymentPage.xhtml" TITLE="true" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#paymentPage.xhtml" PATH="/paymentPage.xhtml"
+  SHAPE="512,40,50,41" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#paymentPage.xhtml:0" NAME="item"
+   PATH="/paymentPage.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="true::#welcome.xhtml" NAME="output"
+    PATH="/welcome.xhtml" TARGET="rules:#welcome.xhtml" TITLE="true" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>
