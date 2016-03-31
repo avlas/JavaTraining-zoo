@@ -21,14 +21,20 @@ public class AnimalController {
 	private String family;
 	private String sex;
 	private String name;
-	private String age;
+	private Integer age;
 
     public String addAnimal() {
-    	if(diet != null && family !=null && name !=null && age !=null && sex != null) {
+    	if(diet != null && family !=null && sex != null && name !=null && age !=null ) {
 			if (this.diet.equalsIgnoreCase(Carnivore.getType())) {
 				diet = DietEnum.CARNIVORE.name();
 			} else if (this.diet.equalsIgnoreCase(Herbivore.getType())) {
 				diet = DietEnum.HERBIVORE.name();
+			}
+
+			for(Carnivore.Family value : Carnivore.Family.values()) {
+				if (this.family.equalsIgnoreCase(value.toString())) {
+					family = value.toString();
+				}
 			}
 
 			Animal animal = animalsService.createAnimal(diet, family, sex, name, age);
@@ -54,12 +60,6 @@ public class AnimalController {
 		return "";
     }
 
-    public String deleteAnimal(int id) {
-    	Animal animal = animalsService.findAnimalById(id);
-    	animalsService.removeAnimal(animal);
-		return "";
-    }
-
 	public AnimalsService getAnimalsService() {
 		return animalsService;
 	}
@@ -67,6 +67,14 @@ public class AnimalController {
 	public void setAnimalsService(AnimalsService animalsService) {
 		this.animalsService = animalsService;
 	}
+
+    public List<Animal> findCarnivors() {
+    	return animalsService.findAnimalsByDiet(DietEnum.CARNIVORE.toString());
+    }
+
+    public List<Animal> findHerbivors() {
+    	return animalsService.findAnimalsByDiet(DietEnum.HERBIVORE.toString());
+    }
 
 	public String getDiet() {
 		return diet;
@@ -100,19 +108,11 @@ public class AnimalController {
 		this.name = name;
 	}
 
-	public String getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
-
-    public List<Animal> findCarnivors() {
-    	return animalsService.findAnimalsByDiet(DietEnum.CARNIVORE.toString());
-    }
-
-    public List<Animal> findHerbivors() {
-    	return animalsService.findAnimalsByDiet(DietEnum.HERBIVORE.toString());
-    }
 }

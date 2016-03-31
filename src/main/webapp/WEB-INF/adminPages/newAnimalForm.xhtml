@@ -4,14 +4,14 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-	<!-- Display the list of Herbivors -->
 	<h3>Add an animal</h3>
-	<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+	<h:panelGrid columns="3" style="margin-bottom:10px" cellpadding="5">
 		<p:outputLabel for="diet" value="Diet:" />
 		<p:selectOneRadio id="diet" value="#{animalController.diet}">
 			<f:selectItem itemLabel="Carnivore" itemValue="Carnivore" />
 			<f:selectItem itemLabel="Herbivore" itemValue="Herbivore" />
 		</p:selectOneRadio>
+		<p:outputLabel />
 
 		<p:outputLabel for="family" value="Family:" />
 		<p:selectOneRadio id="family" value="#{animalController.family}">
@@ -20,22 +20,33 @@
 			<f:selectItem itemValue="horse" itemLabel="Horse" />
 			<f:selectItem itemValue="rabbit" itemLabel="Rabbit" />
 		</p:selectOneRadio>
+		<p:outputLabel />
 
 		<p:outputLabel for="sex" value="Sex:" />
 		<p:selectOneRadio id="sex" value="#{animalController.sex}">
 			<f:selectItem itemValue="female" itemLabel="female" />
 			<f:selectItem itemValue="male" itemLabel="male" />
 		</p:selectOneRadio>
+		<p:outputLabel />
 
 		<p:outputLabel value="Name:" />
-		<p:inputText value="#{animalController.name}" required="true" />
+		<p:inputText id="name" value="#{animalController.name}"
+			required="true" requiredMessage="Required field"
+			validatorMessage="Must contain between 4 and 12 letters!">
+			<f:validateLength minimum="4" maximum="12" />
+			<f:validateRegex pattern="[a-zA-Z]*" />
+		</p:inputText>
+		<p:message for="name" />
 
 		<p:outputLabel value="Age" />
-		<p:inputText value="#{animalController.age}" required="true" />
+		<p:inputText id="age" value="#{animalController.age}" required="true"
+			requiredMessage="Required field" converterMessage="Must be a number!" />
+		<p:message for="age" />
 
 		<p:outputLabel />
 		<p:commandButton icon="ui-icon-trash" title="button" value="Add"
 			actionListener="#{animalController.addAnimal}" ajax="false"
 			update="dataTable" />
+		<p:outputLabel />
 	</h:panelGrid>
 </h:form>

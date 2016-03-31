@@ -6,7 +6,7 @@ import com.zoo.model.animals.Animal;
 
 public interface AnimalsService {
 
-	Animal createAnimal(String diet, String family, String sex, String name, String age);
+	Animal createAnimal(String diet, String family, String sex, String name, Integer age);
 
 	void addAnimal(Animal animal);
 

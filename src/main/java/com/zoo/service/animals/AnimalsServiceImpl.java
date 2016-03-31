@@ -14,13 +14,13 @@ public class AnimalsServiceImpl implements AnimalsService {
     private AnimalsDao animalsDao;
 
 	@Override
-	public Animal createAnimal(String diet, String family, String sex, String name, String age) {
+	public Animal createAnimal(String diet, String family, String sex, String name, Integer age) {
 		Animal animal = new Animal();
 		animal.setDiet(diet);
 		animal.setFamily(family);
 		animal.setName(name);
 		animal.setSex(sex);
-		animal.setAge(Integer.valueOf(age));
+		animal.setAge(age);
 		return animal;
 	}
 
