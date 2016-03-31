@@ -16,19 +16,13 @@ public class AnimalsController {
 	@Inject
 	AnimalsService animalsService;
 
-	private List<Animal> animals;
 	private List<Animal> carnivors;
 	private List<Animal> herbivors;
 
     @PostConstruct
     public void init() {
-    	animals = animalsService.findAnimals();
-    	carnivors = animalsService.findAnimalsByFamily(DietEnum.CARNIVORE.toString());
-    	herbivors = animalsService.findAnimalsByFamily(DietEnum.HERBIVORE.toString());
-    }
-
-    public List<Animal> getAnimals() {
-        return animals;
+    	carnivors = animalsService.findAnimalsByDiet(DietEnum.CARNIVORE.toString());
+    	herbivors = animalsService.findAnimalsByDiet(DietEnum.HERBIVORE.toString());
     }
 
 	public List<Animal> getCarnivors() {

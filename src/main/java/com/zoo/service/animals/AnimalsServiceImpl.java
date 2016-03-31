@@ -56,9 +56,9 @@ public class AnimalsServiceImpl implements AnimalsService {
 	}
 
 	@Override
-	public List<Animal> findAnimalsByFamily(String family) {
+	public List<Animal> findAnimalsByDiet(String diet) {
 		log.info("AnimalsServiceImpl.findAnimalsByFamily");
-		return animalsDao.findAnimalsByFamily(family);
+		return animalsDao.findAnimalsByDiet(diet);
 	}
 
 }

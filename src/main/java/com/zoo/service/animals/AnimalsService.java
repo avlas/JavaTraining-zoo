@@ -18,6 +18,6 @@ public interface AnimalsService {
 
 	List<Animal> findAnimals();
 
-	List<Animal> findAnimalsByFamily(String family);
+	List<Animal> findAnimalsByDiet(String diet);
 
 }

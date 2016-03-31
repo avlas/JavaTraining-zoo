@@ -6,5 +6,5 @@ import com.zoo.data.Dao;
 import com.zoo.model.animals.Animal;
 
 public interface AnimalsDao extends Dao<Integer, Animal> {
-	List<Animal> findAnimalsByFamily(String family);
+	List<Animal> findAnimalsByDiet(String diet);
 }

@@ -5,10 +5,10 @@ import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
+import com.zoo.model.animals.Animal;
 import com.zoo.model.animals.Carnivore;
 import com.zoo.model.animals.DietEnum;
 import com.zoo.model.animals.Herbivore;
-import com.zoo.service.animals.AnimalMB;
 import com.zoo.service.animals.AnimalsService;
 
 @ManagedBean
@@ -24,9 +24,6 @@ public class AnimalsManagementController {
 	AnimalsService animalsService;
 
 	@Inject
-	AnimalMB animalMB;
-
-    @Inject
     private Logger log;
 
     public String addAnimal() {
@@ -38,11 +35,11 @@ public class AnimalsManagementController {
     		diet = DietEnum.HERBIVORE.name();
 //    		diet.setHerbivore(new Herbivore());
     	}
-    	animalMB.setAnimal(animalsService.createAnimal(diet, family, sex, name, age));
 
-    	animalsService.addAnimal(animalMB.getAnimal());
+    	Animal animal = animalsService.createAnimal(diet, family, sex, name, age);
+    	animalsService.addAnimal(animal);
 
-		return Boolean.TRUE.toString();
+		return "";
 
     }
 

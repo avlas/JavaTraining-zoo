@@ -4,28 +4,12 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-	<h:panelGrid columns="5">
+	<h:panelGrid columns="2">
 		<h:outputText value="Diet" />
 		<h:selectOneRadio value="#{animalsManagementController.diet}">
 			<f:selectItem itemValue="carnivore" itemLabel="Carnivore" />
 			<f:selectItem itemValue="herbivore" itemLabel="Herbivore" />
 		</h:selectOneRadio>
-		<h:outputText />
-		<h:outputText />
-		
-		<!-- 		<c:if test="#{animalsManagementController.diet eq carnivore}"> 
-			<h:outputText value="Family" /> 
-			<h:selectOneRadio value="#{animalsManagementController.family}"> 
-				<f:selectItem itemValue="puma" itemLabel="puma" /> 
-				<f:selectItem itemValue="wolf" itemLabel="wolf" /> 
-			</h:selectOneRadio> 
-		</c:if> 
-		<c:if test="#{animalsManagementController.diet eq herbivore}"> 
-			<h:selectOneRadio value="#{animalsManagementController.family}"> 
-				<f:selectItem itemValue="horse" itemLabel="horse" /> 
-				<f:selectItem itemValue="rabbit" itemLabel="rabbit" /> 
-			</h:selectOneRadio> 
-		</c:if> -->
 
 		<h:outputText value="Family" />
 		<h:selectOneRadio value="#{animalsManagementController.family}">
@@ -40,28 +24,17 @@
 			<f:selectItem itemValue="female" itemLabel="female" />
 			<f:selectItem itemValue="male" itemLabel="male" />
 		</h:selectOneRadio>
-		<h:outputText />
-		<h:outputText />
 
 		<h:outputText value="Name" />
 		<h:inputText value="#{animalsManagementController.name}"
 			required="true" />
-		<h:outputText />
-		<h:outputText />
-		<h:outputText />
 
 		<h:outputText value="Age" />
 		<h:inputText value="#{animalsManagementController.age}"
 			required="true" />
-		<h:outputText />
-		<h:outputText />
-		<h:outputText />
 
 		<h:outputText />
 		<h:commandButton value="Add"
 			action="#{animalsManagementController.addAnimal}" />
-		<h:outputText />
-		<h:outputText />
-		<h:outputText />
 	</h:panelGrid>
 </h:form>
