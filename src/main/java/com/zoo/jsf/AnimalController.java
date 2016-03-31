@@ -1,6 +1,6 @@
 package com.zoo.jsf;
 
-import java.util.logging.Logger;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
@@ -12,19 +12,16 @@ import com.zoo.model.animals.Herbivore;
 import com.zoo.service.animals.AnimalsService;
 
 @ManagedBean
-public class AnimalsManagementController {
+public class AnimalController {
+
+	@Inject
+	AnimalsService animalsService;
 
 	private String diet;
 	private String family;
 	private String sex;
 	private String name;
 	private String age;
-
-	@Inject
-	AnimalsService animalsService;
-
-	@Inject
-    private Logger log;
 
     public String addAnimal() {
 //		Diet diet = new Diet();
@@ -40,8 +37,23 @@ public class AnimalsManagementController {
     	animalsService.addAnimal(animal);
 
 		return "";
-
     }
+
+    public List<Animal> findCarnivors() {
+    	return animalsService.findAnimalsByDiet(DietEnum.CARNIVORE.toString());
+    }
+
+    public List<Animal> findHerbivors() {
+    	return animalsService.findAnimalsByDiet(DietEnum.HERBIVORE.toString());
+    }
+
+	public AnimalsService getAnimalsService() {
+		return animalsService;
+	}
+
+	public void setAnimalsService(AnimalsService animalsService) {
+		this.animalsService = animalsService;
+	}
 
 	public String getDiet() {
 		return diet;
@@ -81,14 +93,6 @@ public class AnimalsManagementController {
 
 	public void setAge(String age) {
 		this.age = age;
-	}
-
-	public AnimalsService getAnimalsService() {
-		return animalsService;
-	}
-
-	public void setAnimalsService(AnimalsService animalsService) {
-		this.animalsService = animalsService;
 	}
 
 }

@@ -6,35 +6,35 @@
 
 	<h:panelGrid columns="2">
 		<h:outputText value="Diet" />
-		<h:selectOneRadio value="#{animalsManagementController.diet}">
+		<h:selectOneRadio value="#{animalController.diet}">
 			<f:selectItem itemValue="carnivore" itemLabel="Carnivore" />
 			<f:selectItem itemValue="herbivore" itemLabel="Herbivore" />
 		</h:selectOneRadio>
 
 		<h:outputText value="Family" />
-		<h:selectOneRadio value="#{animalsManagementController.family}">
+		<h:selectOneRadio value="#{animalController.family}">
 			<f:selectItem itemValue="puma" itemLabel="carnivore: Puma" />
 			<f:selectItem itemValue="wolf" itemLabel="carnivore: Wolf" />
 			<f:selectItem itemValue="horse" itemLabel="herbivore: Horse" />
 			<f:selectItem itemValue="rabbit" itemLabel="herbivore: Rabbit" />
 		</h:selectOneRadio>
-		
+
 		<h:outputText value="Sex" />
-		<h:selectOneRadio value="#{animalsManagementController.sex}">
+		<h:selectOneRadio value="#{animalController.sex}">
 			<f:selectItem itemValue="female" itemLabel="female" />
 			<f:selectItem itemValue="male" itemLabel="male" />
 		</h:selectOneRadio>
 
 		<h:outputText value="Name" />
-		<h:inputText value="#{animalsManagementController.name}"
+		<h:inputText value="#{animalController.name}"
 			required="true" />
 
 		<h:outputText value="Age" />
-		<h:inputText value="#{animalsManagementController.age}"
+		<h:inputText value="#{animalController.age}"
 			required="true" />
 
 		<h:outputText />
 		<h:commandButton value="Add"
-			action="#{animalsManagementController.addAnimal}" />
+			action="#{animalController.addAnimal}" />
 	</h:panelGrid>
 </h:form>
