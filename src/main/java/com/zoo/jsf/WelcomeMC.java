@@ -15,4 +15,9 @@ public class WelcomeMC {
 		userService.disconnectCurrentUser();
 		return "disconnect";
 	}
+	
+	public String deleteAccount(){
+		userService.removeUser(userService.getCurrentUser());
+		return disconnect();
+	}
 }
