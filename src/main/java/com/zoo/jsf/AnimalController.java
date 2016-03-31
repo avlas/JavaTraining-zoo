@@ -24,23 +24,33 @@ public class AnimalController {
 	private String age;
 
     public String addAnimal() {
-//		Diet diet = new Diet();
-    	if (this.diet.equalsIgnoreCase(Carnivore.getType())) {
-    		diet = DietEnum.CARNIVORE.name();
-//    		diet.setCarnivore(new Carnivore());
-    	} else if (this.diet.equalsIgnoreCase(Herbivore.getType())) {
-    		diet = DietEnum.HERBIVORE.name();
-//    		diet.setHerbivore(new Herbivore());
-    	}
+    	if(diet != null && family !=null && name !=null && age !=null && sex != null) {
+			if (this.diet.equalsIgnoreCase(Carnivore.getType())) {
+				diet = DietEnum.CARNIVORE.name();
+			} else if (this.diet.equalsIgnoreCase(Herbivore.getType())) {
+				diet = DietEnum.HERBIVORE.name();
+			}
 
-    	Animal animal = animalsService.createAnimal(diet, family, sex, name, age);
-    	animalsService.addAnimal(animal);
+			Animal animal = animalsService.createAnimal(diet, family, sex, name, age);
+			animalsService.addAnimal(animal);
+    	}
 
 		return "";
     }
-    public String remove(Animal animal) {
-    	//Animal animal = animalsService.findAnimalById(id);
+    public String delete(Animal animal) {
     	animalsService.removeAnimal(animal);
+		return "";
+    }
+
+    public String update(Animal animal) {
+    	Animal animal2 = animalsService.findAnimalById(animal.getId());
+    	if(animal2.getName() != animal.getName()) {
+    		animal2.setName(animal.getName());
+    	}
+    	if(animal2.getAge() != animal.getAge()) {
+    		animal2.setAge(animal.getAge());
+    	}
+
 		return "";
     }
 
@@ -48,14 +58,6 @@ public class AnimalController {
     	Animal animal = animalsService.findAnimalById(id);
     	animalsService.removeAnimal(animal);
 		return "";
-    }
-
-    public List<Animal> findCarnivors() {
-    	return animalsService.findAnimalsByDiet(DietEnum.CARNIVORE.toString());
-    }
-
-    public List<Animal> findHerbivors() {
-    	return animalsService.findAnimalsByDiet(DietEnum.HERBIVORE.toString());
     }
 
 	public AnimalsService getAnimalsService() {
@@ -106,4 +108,11 @@ public class AnimalController {
 		this.age = age;
 	}
 
+    public List<Animal> findCarnivors() {
+    	return animalsService.findAnimalsByDiet(DietEnum.CARNIVORE.toString());
+    }
+
+    public List<Animal> findHerbivors() {
+    	return animalsService.findAnimalsByDiet(DietEnum.HERBIVORE.toString());
+    }
 }

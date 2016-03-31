@@ -37,6 +37,11 @@ public abstract class JpaDao<K, E> implements Dao<K, E> {
 	}
 
 	@Override
+	public void refresh(E entity){
+		entityManager.refresh(entityClass);
+	}
+
+	@Override
 	public E findById(K id) {
 		return entityManager.find(entityClass, id);
 	}

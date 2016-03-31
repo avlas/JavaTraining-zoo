@@ -11,6 +11,8 @@ public interface Dao<K, E> {
 
 	void remove(E entity);
 
+	void refresh(E entity);
+
 	E findById(K id);
 
 	List<E> findAll();

@@ -14,6 +14,8 @@ public interface AnimalsService {
 
 	void removeAnimal(Animal animal);
 
+	void refresh(Animal animal);
+
 	List<Animal> findAnimals();
 
 	List<Animal> findAnimalsByDiet(String diet);

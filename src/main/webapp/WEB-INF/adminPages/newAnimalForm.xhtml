@@ -6,38 +6,36 @@
 
 	<!-- Display the list of Herbivors -->
 	<h3>Add an animal</h3>
-	
-	<h:panelGrid columns="2">
-		<h:outputText value="Diet" />
-		<h:selectOneRadio value="#{animalController.diet}">
-			<f:selectItem itemValue="carnivore" itemLabel="Carnivore" />
-			<f:selectItem itemValue="herbivore" itemLabel="Herbivore" />
-		</h:selectOneRadio>
+	<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+		<p:outputLabel for="diet" value="Diet:" />
+		<p:selectOneRadio id="diet" value="#{animalController.diet}">
+			<f:selectItem itemLabel="Carnivore" itemValue="Carnivore" />
+			<f:selectItem itemLabel="Herbivore" itemValue="Herbivore" />
+		</p:selectOneRadio>
 
-		<h:outputText value="Family" />
-		<h:selectOneRadio value="#{animalController.family}">
-			<f:selectItem itemValue="puma" itemLabel="carnivore: Puma" />
-			<f:selectItem itemValue="wolf" itemLabel="carnivore: Wolf" />
-			<f:selectItem itemValue="horse" itemLabel="herbivore: Horse" />
-			<f:selectItem itemValue="rabbit" itemLabel="herbivore: Rabbit" />
-		</h:selectOneRadio>
+		<p:outputLabel for="family" value="Family:" />
+		<p:selectOneRadio id="family" value="#{animalController.family}">
+			<f:selectItem itemValue="puma" itemLabel="Puma" />
+			<f:selectItem itemValue="wolf" itemLabel="Wolf" />
+			<f:selectItem itemValue="horse" itemLabel="Horse" />
+			<f:selectItem itemValue="rabbit" itemLabel="Rabbit" />
+		</p:selectOneRadio>
 
-		<h:outputText value="Sex" />
-		<h:selectOneRadio value="#{animalController.sex}">
+		<p:outputLabel for="sex" value="Sex:" />
+		<p:selectOneRadio id="sex" value="#{animalController.sex}">
 			<f:selectItem itemValue="female" itemLabel="female" />
 			<f:selectItem itemValue="male" itemLabel="male" />
-		</h:selectOneRadio>
+		</p:selectOneRadio>
 
-		<h:outputText value="Name" />
-		<h:inputText value="#{animalController.name}"
-			required="true" />
+		<p:outputLabel value="Name:" />
+		<p:inputText value="#{animalController.name}" required="true" />
 
-		<h:outputText value="Age" />
-		<h:inputText value="#{animalController.age}"
-			required="true" />
+		<p:outputLabel value="Age" />
+		<p:inputText value="#{animalController.age}" required="true" />
 
-		<h:outputText />
-		<h:commandButton value="Add"
-			action="#{animalController.addAnimal}" />
+		<p:outputLabel />
+		<p:commandButton icon="ui-icon-trash" title="button" value="Add"
+			actionListener="#{animalController.addAnimal}" ajax="false"
+			update="dataTable" />
 	</h:panelGrid>
 </h:form>

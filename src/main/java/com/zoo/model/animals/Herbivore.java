@@ -4,7 +4,7 @@ public class Herbivore extends Animal {
 	private static final String TYPE = "carnivore";
 
 	public enum Family {
-	    RABBIT, GIRAFFE, GOAT
+	    RABBIT, GIRAFFE, GOAT, HORSE
 	}
 
 	public static String getType() {

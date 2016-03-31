@@ -14,13 +14,19 @@ public class Animal implements Serializable {
 	@Id
 	@GeneratedValue
 	private int id;
-//	@OneToOne
+	//	@OneToOne
 	private String diet;
 	private String family;
 	private String name;
 	private String sex;
 	private int age;
 
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getDiet() {
 		return diet;
 	}
