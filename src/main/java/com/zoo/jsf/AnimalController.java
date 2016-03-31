@@ -38,6 +38,11 @@ public class AnimalController {
 
 		return "";
     }
+    public String remove(Animal animal) {
+    	//Animal animal = animalsService.findAnimalById(id);
+    	animalsService.removeAnimal(animal);
+		return "";
+    }
 
     public String deleteAnimal(int id) {
     	Animal animal = animalsService.findAnimalById(id);
