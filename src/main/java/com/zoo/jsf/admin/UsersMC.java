@@ -34,7 +34,7 @@ public class UsersMC {
 
 	public String deleteUser() {
 		User user = userService.findUserById(userEmail);
-		if (user.equals(userService.getCurrentUser())) {
+		if (!user.equals(userService.getCurrentUser())) {
 			userService.removeUser(user);
 		}
 		return "false";

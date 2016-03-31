@@ -1,6 +1,51 @@
-<h:form xmlns="http://www.w3.org/1999/xhtml"
+<h:panelGroup layout="block" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-	
-</h:form>
+
+	<h:form>
+
+		<h:outputText value="Booking id:  " />
+		<h:inputText value="#{bookingsMC.id}" required="true"
+			id="bookingId" />
+		<h:commandButton value="Delete" action="#{bookingsMC.deleteBooking}" />
+	</h:form>
+
+	<h3>Bookings</h3>
+	<h:dataTable value="#{bookingsMC.bookings}" var="booking">
+
+		<h:column>
+			<f:facet name="header">Id</f:facet>
+			#{booking.id}
+        </h:column>
+
+		<h:column>
+			<f:facet name="header">Adults</f:facet>
+                    #{booking.nbAdults}
+                </h:column>
+		<h:column>
+			<f:facet name="header">Children</f:facet>
+                    #{booking.nbChildren}
+                </h:column>
+		<h:column>
+			<f:facet name="header">Reduced</f:facet>
+                    #{booking.nbReduced}
+                </h:column>
+        <h:column>
+			<f:facet name="header">Groups</f:facet>
+                    #{booking.nbGroups}
+                </h:column>
+        <h:column>
+			<f:facet name="header">Price</f:facet>
+                    #{booking.price}
+                </h:column>
+        <h:column>
+			<f:facet name="header">Date</f:facet>
+                    #{booking.date}
+                </h:column>
+        <h:column>
+			<f:facet name="header">Email</f:facet>
+                    #{booking.email}
+                </h:column>
+	</h:dataTable>
+</h:panelGroup>

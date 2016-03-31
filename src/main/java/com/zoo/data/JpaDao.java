@@ -33,7 +33,7 @@ public abstract class JpaDao<K, E> implements Dao<K, E> {
 
 	@Override
 	public void remove(E entity) {
-		entityManager.remove(entity);
+		entityManager.remove(entityManager.contains(entity) ? entity : entityManager.merge(entity));
 	}
 
 	@Override

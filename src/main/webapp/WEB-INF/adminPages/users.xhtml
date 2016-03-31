@@ -14,12 +14,12 @@
 
 	<h3>Admins</h3>
 	<!-- Display the list of Admins -->
-	<h:dataTable value="#{userMC.getAdminList}" var="admin">
+	<h:dataTable value="#{usersMC.adminList}" var="admin">
 
 		<h:column>
 			<f:facet name="header">Email</f:facet>
-                    #{admin.email}
-                </h:column>
+			#{admin.email}
+        </h:column>
 
 		<h:column>
 			<f:facet name="header">FirstName</f:facet>
@@ -34,7 +34,7 @@
 
 	<h3>Users</h3>
 	<!-- Display the list of Users -->
-	<h:dataTable value="#{userMC.userList}" var="user">
+	<h:dataTable value="#{usersMC.userList}" var="user">
 
 		<h:column>
 			<f:facet name="header">Email</f:facet>
