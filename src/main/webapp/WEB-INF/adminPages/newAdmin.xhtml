@@ -1,0 +1,26 @@
+<h:form xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+	<h:panelGrid columns="2">
+
+		<h:outputText value="Email" />
+		<h:inputText value="#{newAdminMC.email}" required="true" id="email" />
+
+		<h:outputText value="FirstName" />
+		<h:inputText value="#{newAdminMC.firstName}" required="true"
+			id="firstName" />
+
+		<h:outputText value="LastName" />
+		<h:inputText value="#{newAdminMC.lastName}" required="true" id="lastName" />
+
+		<h:outputText value="Password" />
+		<h:inputText value="#{newAdminMC.pass}" required="true" id="pass" />
+
+		<h:outputText value="Password again" />
+		<h:inputText value="#{newAdminMC.repass}" required="true" id="repass" />
+
+		<h:commandButton value="Ok" action="#{newAdminMC.checkAdmin}" />
+	</h:panelGrid>
+</h:form>

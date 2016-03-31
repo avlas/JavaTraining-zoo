@@ -7,26 +7,29 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-
 <h:head>
 	<title>Welcome</title>
 </h:head>
 
 <h:body>
-	<h:form id="form">
+	<h:form id="disconnect">
 		<h:commandButton value="Log out" action="#{welcomeMC.disconnect}" />
 	</h:form>
+		<p:growl id="msgs" showDetail="true" />
+		<p:tabView>
+			<p:tab title="Users">
+				<h2>Users</h2>
+				<ui:include src="/WEB-INF/adminPages/users.xhtml" />
+			</p:tab>
+			<p:tab title="Bookings">
+				<h2>Bookings</h2>
+				<ui:include src="/WEB-INF/adminPages/bookings.xhtml" />
+			</p:tab>
+			<p:tab title="NewAdmin">
+				<h2>New Admin</h2>
+				<ui:include src="/WEB-INF/adminPages/newAdmin.xhtml" />
+			</p:tab>
+		</p:tabView>
 	
-	<p:growl id="msgs" showDetail="true" />
-	<p:tabView>
-		<p:tab title="Tickets">
-			<h2>Tickets</h2>
-			<ui:include src="/WEB-INF/ticketsForm.xhtml" />
-		</p:tab>
-		<p:tab title="Animals">
-			<h2>Tickets</h2>
-			<ui:include src="/WEB-INF/animalsForm.xhtml" />
-		</p:tab>
-	</p:tabView>
 </h:body>
 </html>

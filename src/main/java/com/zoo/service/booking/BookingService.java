@@ -1,5 +1,7 @@
 package com.zoo.service.booking;
 
+import java.util.Collection;
+
 import com.zoo.model.Booking;
 
 public interface BookingService {
@@ -9,7 +11,11 @@ public interface BookingService {
 
 	void removeBooking(Booking booking);
 
-	void findBookingById(int id);
+	Booking findBookingById(int id);
 
-	void findAllBooking();
+	Collection<Booking> findAllBooking();
+
+	Booking getCurrentBooking();
+	
+	void setCurrentBooking(Booking booking);
 }

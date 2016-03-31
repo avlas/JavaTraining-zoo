@@ -3,8 +3,6 @@ package com.zoo.jsf;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
-
-import com.zoo.service.booking.BookingHolder;
 import com.zoo.service.booking.BookingService;
 
 @ManagedBean
@@ -16,19 +14,16 @@ public class PaymentMC {
 	private String expiryDate;
 
 	@Inject
-	private BookingHolder bookingHolder;
-
-	@Inject
-	BookingService bookingServie;
+	BookingService bookingService;
 
 	@PostConstruct
 	public void init() {
-		order = bookingHolder.getBooking().orderToString();
-		price = String.valueOf(bookingHolder.getBooking().getPrice());
+		order = bookingService.getCurrentBooking().orderToString();
+		price = String.valueOf(bookingService.getCurrentBooking().getPrice());
 	}
 
 	public String payment() {
-		bookingServie.saveBooking(bookingHolder.getBooking());
+		bookingService.saveBooking(bookingService.getCurrentBooking());
 		return Boolean.TRUE.toString();
 	}
 

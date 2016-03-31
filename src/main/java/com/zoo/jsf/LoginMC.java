@@ -3,7 +3,8 @@ package com.zoo.jsf;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
-import com.zoo.service.user.UserAuthentificationServiceInterface;
+import com.zoo.model.User;
+import com.zoo.service.user.UserService;
 
 @ManagedBean
 public class LoginMC {
@@ -11,16 +12,19 @@ public class LoginMC {
 	private String pass;
 
 	@Inject
-	UserAuthentificationServiceInterface userAS;
+	UserService userService;
 
 	public String check() {
-		if (userAS.isValid(login, pass)) {
-			return Boolean.TRUE.toString();
+		User user = userService.findUserById(login);
+		if (user != null && user.isMyPassword(pass)) {
+			userService.setCurrentUser(user);
+			return userService.getCurrentUser().getAuthority();
 		} else {
 			return Boolean.FALSE.toString();
 		}
 	}
 
+	// Getters / Setters
 	public String getLogin() {
 		return login;
 	}

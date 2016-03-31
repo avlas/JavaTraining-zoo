@@ -2,14 +2,10 @@ package com.zoo.model;
 
 import java.util.Date;
 
-import javax.ejb.Stateful;
-import javax.enterprise.context.SessionScoped;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Stateful
-@SessionScoped
 @Entity
 public class Booking {
 

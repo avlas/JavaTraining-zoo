@@ -8,10 +8,9 @@
 
 		<h:inputText value="#{loginMC.login}" required="true"
 			requiredMessage="#{messages.requiredLoginMessage}"
-			converterMessage="#{messages.converterLoginMessage}"
-			validatorMessage="#{messages.validatorLoginMessage}" id="login">
-			<f:validateLength minimum="4" maximum="12" />
-			<f:validateRegex pattern="[a-zA-Z]*" />
+			converterMessage="#{messages.converterLoginMessage}" id="login">
+			
+
 		</h:inputText>
 		<h:message for="login" />
 
@@ -30,6 +29,6 @@
 			action="#{loginMC.check}" />
 		<h:outputText />
 
-		
+
 	</h:panelGrid>
 </h:form>

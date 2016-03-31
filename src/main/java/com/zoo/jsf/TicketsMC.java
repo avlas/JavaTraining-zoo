@@ -3,7 +3,6 @@ package com.zoo.jsf;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
-import com.zoo.service.booking.BookingHolder;
 import com.zoo.service.booking.BookingService;
 
 @ManagedBean
@@ -17,14 +16,11 @@ public class TicketsMC {
 	@Inject
 	BookingService bookingService;
 
-	@Inject
-	BookingHolder bookingHolder;
-
 	// If at least one ticket is ordered return true to lead to the payment page
 	public String payment() {
 
 		if (adult > 0 || child > 0 || reduced > 0 || group > 0) {
-			bookingHolder.setBooking(bookingService.createBooking(adult, child, reduced, group));
+			bookingService.setCurrentBooking(bookingService.createBooking(adult, child, reduced, group));
 			return Boolean.TRUE.toString();
 		} else {
 			return Boolean.FALSE.toString();
@@ -33,8 +29,8 @@ public class TicketsMC {
 
 	// Getters / Setters
 	public int getAdult() {
-		if (bookingHolder.getBooking() != null) {
-			return bookingHolder.getBooking().getNbAdults();
+		if (bookingService.getCurrentBooking() != null) {
+			return bookingService.getCurrentBooking().getNbAdults();
 		}
 		return adult;
 	}
@@ -44,6 +40,9 @@ public class TicketsMC {
 	}
 
 	public int getChild() {
+		if (bookingService.getCurrentBooking() != null) {
+			return bookingService.getCurrentBooking().getNbChildren();
+		}
 		return child;
 	}
 
@@ -52,6 +51,9 @@ public class TicketsMC {
 	}
 
 	public int getReduced() {
+		if (bookingService.getCurrentBooking() != null) {
+			return bookingService.getCurrentBooking().getNbReduced();
+		}
 		return reduced;
 	}
 
@@ -60,6 +62,9 @@ public class TicketsMC {
 	}
 
 	public int getGroup() {
+		if (bookingService.getCurrentBooking() != null) {
+			return bookingService.getCurrentBooking().getNbGroups();
+		}
 		return group;
 	}
 
