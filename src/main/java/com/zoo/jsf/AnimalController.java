@@ -39,6 +39,12 @@ public class AnimalController {
 		return "";
     }
 
+    public String deleteAnimal(int id) {
+    	Animal animal = animalsService.findAnimalById(id);
+    	animalsService.removeAnimal(animal);
+		return "";
+    }
+
     public List<Animal> findCarnivors() {
     	return animalsService.findAnimalsByDiet(DietEnum.CARNIVORE.toString());
     }

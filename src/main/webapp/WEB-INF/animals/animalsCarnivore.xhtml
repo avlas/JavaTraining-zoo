@@ -4,28 +4,27 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-	<p:carousel value="#{animalController.findCarnivors()}" var="carnivore"
-		itemStyle="text-align:center" responsive="true">
-		<p:panelGrid columns="2" style="width:100%;margin:10px 0px"
-			columnClasses="label,value" layout="grid"
-			styleClass="ui-panelgrid-blank">
+	<!-- Display the list of Carnivors -->
+	<h3>Carnivors</h3>
+	<h:dataTable value="#{animalController.findCarnivors()}" var="carnivore">
+		<h:column>
+			<f:facet name="header">Diet</f:facet> #{carnivore.diet}
+        </h:column>
 
-			<h:outputText value="Diet:" />
-			<h:outputText value="#{carnivore.diet}" />
+		<h:column>
+			<f:facet name="header">Family</f:facet> #{carnivore.family}
+        </h:column>
 
-			<h:outputText value="Family" />
-			<h:outputText value="#{carnivore.family}" />
+		<h:column>
+			<f:facet name="header">Name</f:facet> #{carnivore.name}
+        </h:column>
+        
+        <h:column>
+			<f:facet name="header">Sex</f:facet> #{carnivore.sex}
+        </h:column>
 
-			<h:outputText value="Name:" />
-			<h:outputText value="#{carnivore.name}" />
-
-			<h:outputText value="Sex:" />
-			<h:outputText value="#{carnivore.sex}" />
-
-			<h:outputText value="Age" />
-			<h:outputText value="#{carnivore.age}" />
-		</p:panelGrid>
-
-		<f:facet name="footer">In total there are #{(animalsController.carnivors.size())} carnivors.</f:facet>
-	</p:carousel>
+		<h:column>
+			<f:facet name="header">Age</f:facet> #{carnivore.age}
+        </h:column>
+	</h:dataTable>
 </h:panelGroup>

@@ -12,8 +12,6 @@ public interface AnimalsService {
 
 	Animal findAnimalById(int id);
 
-//	void updateAnimal(Animal animal);
-
 	void removeAnimal(Animal animal);
 
 	List<Animal> findAnimals();
