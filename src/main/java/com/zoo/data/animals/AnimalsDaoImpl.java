@@ -16,7 +16,7 @@ public class AnimalsDaoImpl extends JpaDao<Integer, Animal> implements AnimalsDa
 //		 Root<entityClass.getName()> animal = query.from(entityClass.getName());
 //		 query.select(animal).where(animal.get("diet"), animDiet);
 
-		Query q = entityManager.createQuery("SELECT a FROM " + entityClass.getName() + " a WHERE diet = :animDiet");
+		Query q = entityManager.createQuery("SELECT a FROM " + entityClass.getName() + " a WHERE a.diet = :animDiet");
 		q.setParameter("animDiet", diet);
 		return q.getResultList();
 

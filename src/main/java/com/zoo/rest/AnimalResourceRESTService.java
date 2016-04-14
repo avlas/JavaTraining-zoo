@@ -35,7 +35,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -109,10 +108,11 @@ public class AnimalResourceRESTService {
         return bf.toString();
     }
 
-	//http://localhost:8180/zoo/rest/animals?diet=CARNIVORE
+	//http://localhost:8180/zoo/rest/animals/CARNIVORE
     @GET
+    @Path("/{diet}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Animal> listAnimalsByDiet(@QueryParam("diet") String diet) {
+    public List<Animal> listAnimalsByDiet(@PathParam("diet") String diet) {
     	return service.findAnimalsByDiet(diet);
     }
 
