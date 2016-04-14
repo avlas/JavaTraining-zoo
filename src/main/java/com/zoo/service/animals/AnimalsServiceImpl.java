@@ -25,12 +25,12 @@ public class AnimalsServiceImpl implements AnimalsService {
 	}
 
 	@Override
-	public void addAnimal(Animal animal) {
+	public void saveAnimal(Animal animal) {
 		animalsDao.persist(animal);
 	}
 
 	@Override
-	public Animal findAnimalById(int id) {
+	public Animal findById(int id) {
 		return animalsDao.findById(id);
 	}
 

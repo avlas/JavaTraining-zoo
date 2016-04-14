@@ -38,7 +38,7 @@ public class AnimalController {
 			}
 
 			Animal animal = animalsService.createAnimal(diet, family, sex, name, age);
-			animalsService.addAnimal(animal);
+			animalsService.saveAnimal(animal);
     	}
 
 		return "";
@@ -49,7 +49,7 @@ public class AnimalController {
     }
 
     public String update(Animal animal) {
-    	Animal animal2 = animalsService.findAnimalById(animal.getId());
+    	Animal animal2 = animalsService.findById(animal.getId());
     	if(animal2.getName() != animal.getName()) {
     		animal2.setName(animal.getName());
     	}

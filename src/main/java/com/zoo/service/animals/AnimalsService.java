@@ -8,9 +8,9 @@ public interface AnimalsService {
 
 	Animal createAnimal(String diet, String family, String sex, String name, Integer age);
 
-	void addAnimal(Animal animal);
+	void saveAnimal(Animal animal);
 
-	Animal findAnimalById(int id);
+	Animal findById(int id);
 
 	void removeAnimal(Animal animal);
 

@@ -5,7 +5,11 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 @Entity
 public class Animal implements Serializable {
 
@@ -14,11 +18,15 @@ public class Animal implements Serializable {
 	@Id
 	@GeneratedValue
 	private int id;
-	//	@OneToOne
 	private String diet;
 	private String family;
-	private String name;
 	private String sex;
+
+    @NotNull
+    @Pattern(regexp = "[^0-9]*", message = "Must not contain numbers")
+	private String name;
+
+    @NotNull
 	private int age;
 
 	public int getId() {
