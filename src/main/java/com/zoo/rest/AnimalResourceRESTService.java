@@ -128,7 +128,7 @@ public class AnimalResourceRESTService {
         return animal;
     }
 
-      private void validateAnimal(Animal animal) throws ConstraintViolationException, ValidationException {
+    private void validateAnimal(Animal animal) throws ConstraintViolationException, ValidationException {
         // Create a bean validator and check for issues.
         Set<ConstraintViolation<Animal>> violations = validator.validate(animal);
 
